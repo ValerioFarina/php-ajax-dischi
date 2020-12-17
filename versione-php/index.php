@@ -15,30 +15,32 @@
         </header>
 
         <main>
-            <div class="container albums">
-                <?php
-                foreach ($albums as $album) { ?>
-                    <div class="album">
-                        <div class="poster">
-                            <img src="<?php echo $album["poster"]; ?>" alt="<?php echo $album["title"]; ?>">
-                        </div>
-                        <div class="info">
-                            <h4 class="title">
-                                <?php echo $album["title"]; ?>
-                            </h4>
-                            <h5 class="author">
-                                <?php echo $album["author"]; ?>
-                            </h5>
-                            <h5 class="genre">
-                                <?php echo $album["genre"]; ?>
-                            </h5>
-                            <h5 class="year">
-                                <?php echo $album["year"]; ?>
-                            </h5>
-                        </div>
-                    </div>
+            <div class="container">
+                <div class="albums">
                     <?php
-                } ?>
+                    foreach ($albums as $album) { ?>
+                        <div class="album">
+                            <div class="poster">
+                                <img src="<?php echo $album["poster"]; ?>" alt="<?php echo $album["title"]; ?>">
+                            </div>
+                            <div class="info">
+                                <h4 class="title">
+                                    <?php echo $album["title"]; ?>
+                                </h4>
+                                <h5 class="author">
+                                    <?php echo $album["author"]; ?>
+                                </h5>
+                                <h5 class="genre">
+                                    <?php echo $album["genre"]; ?>
+                                </h5>
+                                <h5 class="year">
+                                    <?php echo $album["year"]; ?>
+                                </h5>
+                            </div>
+                        </div>
+                        <?php
+                    } ?>
+                </div>
             </div>
         </main>
     </body>

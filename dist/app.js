@@ -10995,7 +10995,7 @@ $(document).ready(function () {
           year: album.year
         };
         var albumHtml = albumTemplate(placeholders);
-        $(".container.albums").append(albumHtml);
+        $(".albums").append(albumHtml);
       });
     },
     error: function error() {

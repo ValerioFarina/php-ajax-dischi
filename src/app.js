@@ -20,11 +20,13 @@ $(document).ready(function() {
 
                 var albumHtml = albumTemplate(placeholders);
 
-                $(".container.albums").append(albumHtml);
+                $(".albums").append(albumHtml);
             });
         },
         error: function() {
             console.log('error');
         }
     });
+
+
 });

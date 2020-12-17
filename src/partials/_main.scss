@@ -3,7 +3,16 @@ main {
     background-color: $brand_secondary;
 }
 
-.container.albums {
+.filter-genre {
+    padding-top: 50px;
+    text-align: center;
+
+    select {
+        padding: 5px;
+    }
+}
+
+.albums {
     display: flex;
     flex-wrap: wrap;
 }
@@ -24,5 +33,10 @@ main {
 
     .info {
         padding: 20px;
+
+        .title {
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
     }
 }

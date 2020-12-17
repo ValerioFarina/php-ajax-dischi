@@ -19,7 +19,15 @@ main {
   background-color: #000000e0;
 }
 
-.container.albums {
+.filter-genre {
+  padding-top: 50px;
+  text-align: center;
+}
+.filter-genre select {
+  padding: 5px;
+}
+
+.albums {
   display: flex;
   flex-wrap: wrap;
 }
@@ -38,4 +46,8 @@ main {
 }
 .album .info {
   padding: 20px;
+}
+.album .info .title {
+  margin-bottom: 10px;
+  font-size: 20px;
 }
