@@ -22,6 +22,7 @@ $(document).ready(function() {
         // finally, we get the albums that match the selected genre
         getAlbums(selectedGenre);
     });
+    
 
     // ****************** functions ******************
 

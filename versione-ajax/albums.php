@@ -73,11 +73,15 @@
         ]
     ];
 
+    // we get the selected genre
     $selected_genre = $_GET['genre'];
 
+    // we save the array of albums in the variable $albums_filtered
     $albums_filtered = $albums;
 
     if ($selected_genre != 'All') {
+        // if the user has selected a specific genre,
+        // then we filter the array saved in $albums_filtered according the selected genre
         $albums_filtered = array_filter($albums_filtered, function($album) {
             global $selected_genre;
             return $album["genre"] == $selected_genre;
