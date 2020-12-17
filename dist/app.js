@@ -10982,34 +10982,19 @@ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"
 $(document).ready(function () {
   var albumHtml = $('#album-template').html();
   var albumTemplate = Handlebars.compile(albumHtml);
-  $.ajax({
-    url: 'albums.php',
-    method: 'GET',
-    success: function success(albums) {
-      albums.forEach(function (album) {
-        var placeholders = {
-          posterUrl: album.poster,
-          title: album.title,
-          author: album.author,
-          genre: album.genre,
-          year: album.year
-        };
-        var albumHtml = albumTemplate(placeholders);
-        $(".albums").append(albumHtml);
-      });
-    },
-    error: function error() {
-      console.log('error');
-    }
-  });
+  getAlbums('All');
   $("select.genres").change(function () {
     $(".albums").empty();
     var selectedGenre = $("select.genres").val();
+    getAlbums(selectedGenre);
+  }); // ****************** functions ******************
+
+  function getAlbums(genre) {
     $.ajax({
       url: 'albums.php',
       method: 'GET',
       data: {
-        genre: selectedGenre
+        genre: genre
       },
       success: function success(albums) {
         albums.forEach(function (album) {
@@ -11028,7 +11013,7 @@ $(document).ready(function () {
         console.log('error');
       }
     });
-  });
+  }
 });
 
 /***/ }),

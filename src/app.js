@@ -5,39 +5,23 @@ $(document).ready(function() {
 
     var albumTemplate = Handlebars.compile(albumHtml);
 
-    $.ajax({
-        url: 'albums.php',
-        method: 'GET',
-        success: function(albums) {
-            albums.forEach((album) => {
-                var placeholders = {
-                    posterUrl: album.poster,
-                    title: album.title,
-                    author: album.author,
-                    genre: album.genre,
-                    year: album.year
-                };
-
-                var albumHtml = albumTemplate(placeholders);
-
-                $(".albums").append(albumHtml);
-            });
-        },
-        error: function() {
-            console.log('error');
-        }
-    });
+    getAlbums('All');
 
     $("select.genres").change(function() {
         $(".albums").empty();
 
         var selectedGenre = $("select.genres").val();
 
+        getAlbums(selectedGenre);
+    });
+
+    // ****************** functions ******************
+    function getAlbums(genre) {
         $.ajax({
             url: 'albums.php',
             method: 'GET',
             data: {
-                genre: selectedGenre
+                genre
             },
             success: function(albums) {
                 albums.forEach((album) => {
@@ -58,7 +42,6 @@ $(document).ready(function() {
                 console.log('error');
             }
         });
-    });
-
+    }
 
 });

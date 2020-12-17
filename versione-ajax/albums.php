@@ -77,7 +77,7 @@
 
     $albums_filtered = $albums;
 
-    if ($selected_genre && $selected_genre != 'All') {
+    if ($selected_genre != 'All') {
         $albums_filtered = array_filter($albums_filtered, function($album) {
             global $selected_genre;
             return $album["genre"] == $selected_genre;
