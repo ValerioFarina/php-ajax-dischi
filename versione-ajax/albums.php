@@ -1,7 +1,5 @@
 <?php
 
-    $genre = $_GET['genre'];
-
     $albums = [
         [
             'poster' => 'https://www.onstageweb.com/wp-content/uploads/2018/09/bon-jovi-new-jersey.jpg',
@@ -75,7 +73,19 @@
         ]
     ];
 
+    $selected_genre = $_GET['genre'];
+
+    $albums_filtered = $albums;
+
+    if ($selected_genre && $selected_genre != 'All') {
+        $albums_filtered = array_filter($albums_filtered, function($album) {
+            global $selected_genre;
+            return $album["genre"] == $selected_genre;
+        });
+        $albums_filtered = array_values($albums_filtered);
+    }
+
     header('Content-Type: application/json');
-    echo json_encode($albums);
+    echo json_encode($albums_filtered);
 
 ?>
