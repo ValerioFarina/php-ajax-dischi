@@ -16,7 +16,7 @@ header {
 
 main {
   min-height: calc(100vh - 100px);
-  background-color: black;
+  background-color: #000000e0;
 }
 
 .container.albums {
@@ -27,14 +27,12 @@ main {
 .album {
   flex-basis: calc((100% / 4) - 50px);
   margin: 50px 25px 0 25px;
-  background: grey;
-}
-.album .poster {
-  width: 100%;
+  background-color: grey;
+  color: white;
 }
 .album .poster img {
-  width: 100%;
-  height: 100%;
+  width: 250px;
+  height: 250px;
   -o-object-fit: cover;
      object-fit: cover;
 }

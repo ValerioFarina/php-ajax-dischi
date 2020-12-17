@@ -16,105 +16,29 @@
 
         <main>
             <div class="container albums">
-                <div class="album">
-                    <div class="poster">
-                        <img src="https://www.onstageweb.com/wp-content/uploads/2018/09/bon-jovi-new-jersey.jpg" alt="">
+                <?php
+                foreach ($albums as $album) { ?>
+                    <div class="album">
+                        <div class="poster">
+                            <img src="<?php echo $album["poster"]; ?>" alt="<?php echo $album["title"]; ?>">
+                        </div>
+                        <div class="info">
+                            <h4 class="title">
+                                <?php echo $album["title"]; ?>
+                            </h4>
+                            <h5 class="author">
+                                <?php echo $album["author"]; ?>
+                            </h5>
+                            <h5 class="genre">
+                                <?php echo $album["genre"]; ?>
+                            </h5>
+                            <h5 class="year">
+                                <?php echo $album["year"]; ?>
+                            </h5>
+                        </div>
                     </div>
-                    <div class="info">
-                        <h4 class="title">
-                            New Jersey
-                        </h4>
-                        <h5 class="author">
-                            Bon Jovi
-                        </h5>
-                        <h5 class="genre">
-                            Rock
-                        </h5>
-                        <h5 class="year">
-                            1988
-                        </h5>
-                    </div>
-                </div>
-
-                <div class="album">
-                    <div class="poster">
-                        <img src="https://www.onstageweb.com/wp-content/uploads/2018/09/bon-jovi-new-jersey.jpg" alt="">
-                    </div>
-                    <div class="info">
-                        <h4 class="title">
-                            New Jersey
-                        </h4>
-                        <h5 class="author">
-                            Bon Jovi
-                        </h5>
-                        <h5 class="genre">
-                            Rock
-                        </h5>
-                        <h5 class="year">
-                            1988
-                        </h5>
-                    </div>
-                </div>
-
-                <div class="album">
-                    <div class="poster">
-                        <img src="https://www.onstageweb.com/wp-content/uploads/2018/09/bon-jovi-new-jersey.jpg" alt="">
-                    </div>
-                    <div class="info">
-                        <h4 class="title">
-                            New Jersey
-                        </h4>
-                        <h5 class="author">
-                            Bon Jovi
-                        </h5>
-                        <h5 class="genre">
-                            Rock
-                        </h5>
-                        <h5 class="year">
-                            1988
-                        </h5>
-                    </div>
-                </div>
-
-                <div class="album">
-                    <div class="poster">
-                        <img src="https://www.onstageweb.com/wp-content/uploads/2018/09/bon-jovi-new-jersey.jpg" alt="">
-                    </div>
-                    <div class="info">
-                        <h4 class="title">
-                            New Jersey
-                        </h4>
-                        <h5 class="author">
-                            Bon Jovi
-                        </h5>
-                        <h5 class="genre">
-                            Rock
-                        </h5>
-                        <h5 class="year">
-                            1988
-                        </h5>
-                    </div>
-                </div>
-
-                <div class="album">
-                    <div class="poster">
-                        <img src="https://www.onstageweb.com/wp-content/uploads/2018/09/bon-jovi-new-jersey.jpg" alt="">
-                    </div>
-                    <div class="info">
-                        <h4 class="title">
-                            New Jersey
-                        </h4>
-                        <h5 class="author">
-                            Bon Jovi
-                        </h5>
-                        <h5 class="genre">
-                            Rock
-                        </h5>
-                        <h5 class="year">
-                            1988
-                        </h5>
-                    </div>
-                </div>
+                    <?php
+                } ?>
             </div>
         </main>
     </body>

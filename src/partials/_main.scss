@@ -11,14 +11,13 @@ main {
 .album {
     flex-basis: calc((100% / 4) - 50px);
     margin: 50px 25px 0 25px;
-    background: $brand_primary;
+    background-color: $brand_primary;
+    color: white;
 
     .poster {
-        width: 100%;
-
         img {
-            width: 100%;
-            height: 100%;
+            width: 250px;
+            height: 250px;
             object-fit: cover;
         }
     }
