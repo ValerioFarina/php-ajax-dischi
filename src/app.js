@@ -5,6 +5,17 @@ $(document).ready(function() {
 
     var albumTemplate = Handlebars.compile(albumHtml);
 
+    $.ajax({
+        url: 'albums.php',
+        method: 'GET',
+        success: function() {
+            console.log('success');
+        },
+        error: function() {
+            console.log('error');
+        }
+    });
+
     var placeholders = {
         posterUrl: 'https://www.onstageweb.com/wp-content/uploads/2018/09/bon-jovi-new-jersey.jpg',
         title: 'New Jersey',

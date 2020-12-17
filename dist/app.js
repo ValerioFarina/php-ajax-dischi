@@ -10982,6 +10982,16 @@ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"
 $(document).ready(function () {
   var albumHtml = $('#album-template').html();
   var albumTemplate = Handlebars.compile(albumHtml);
+  $.ajax({
+    url: 'albums.php',
+    method: 'GET',
+    success: function success() {
+      console.log('success');
+    },
+    error: function error() {
+      console.log('error');
+    }
+  });
   var placeholders = {
     posterUrl: 'https://www.onstageweb.com/wp-content/uploads/2018/09/bon-jovi-new-jersey.jpg',
     title: 'New Jersey',
