@@ -29,7 +29,7 @@ $(document).ready(function() {
     });
 
     $("select.genres").change(function() {
-        console.log('selected');
+        $(".albums").empty();
     });
 
 
