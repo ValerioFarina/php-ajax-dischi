@@ -11002,6 +11002,9 @@ $(document).ready(function () {
       console.log('error');
     }
   });
+  $("select.genres").change(function () {
+    console.log('selected');
+  });
 });
 
 /***/ }),
