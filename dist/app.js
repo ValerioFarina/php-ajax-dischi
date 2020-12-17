@@ -10985,25 +10985,23 @@ $(document).ready(function () {
   $.ajax({
     url: 'albums.php',
     method: 'GET',
-    success: function success() {
-      console.log('success');
+    success: function success(albums) {
+      albums.forEach(function (album) {
+        var placeholders = {
+          posterUrl: album.poster,
+          title: album.title,
+          author: album.author,
+          genre: album.genre,
+          year: album.year
+        };
+        var albumHtml = albumTemplate(placeholders);
+        $(".container.albums").append(albumHtml);
+      });
     },
     error: function error() {
       console.log('error');
     }
   });
-  var placeholders = {
-    posterUrl: 'https://www.onstageweb.com/wp-content/uploads/2018/09/bon-jovi-new-jersey.jpg',
-    title: 'New Jersey',
-    author: 'Bon Jovi',
-    genre: 'Rock',
-    year: '1988'
-  };
-
-  for (var i = 0; i < 10; i++) {
-    var album = albumTemplate(placeholders);
-    $(".container.albums").append(album);
-  }
 });
 
 /***/ }),
