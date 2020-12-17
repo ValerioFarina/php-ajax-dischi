@@ -10,6 +10,16 @@
         <link rel="stylesheet" href="../dist/app.css">
     </head>
     <body>
-        <?php var_dump($albums) ?>
+        <header>
+
+        </header>
+
+        <main>
+            <div class="container">
+                <div class="card">
+
+                </div>
+            </div>
+        </main>
     </body>
 </html>
