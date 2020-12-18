@@ -8,6 +8,8 @@
         <meta charset="utf-8">
         <title>Albums - Versione PHP</title>
         <link rel="stylesheet" href="../dist/app.css">
+        <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+        <script src="../dist/app.js" charset="utf-8"></script>
     </head>
     <body>
         <header>
@@ -54,5 +56,31 @@
                 </div>
             </div>
         </main>
+
+
+        <!-- ******************** handlebars' templates ******************** -->
+
+        <!-- this is the template of an album's card -->
+        <script id="album-template" type="text/x-handlebars-template">
+            <div class="album">
+                <div class="poster">
+                    <img src="{{ posterUrl }}" alt="{{ title }}">
+                </div>
+                <div class="info">
+                    <h4 class="title">
+                        {{ title }}
+                    </h4>
+                    <h5 class="author">
+                        {{ author }}
+                    </h5>
+                    <h5 class="genre">
+                        {{ genre }}
+                    </h5>
+                    <h5 class="year">
+                        {{ year }}
+                    </h5>
+                </div>
+            </div>
+        </script>
     </body>
 </html>
