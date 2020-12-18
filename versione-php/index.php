@@ -1,19 +1,20 @@
 <?php
     require '../albums.php';
 ?>
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title>Albums - Versione PHP</title>
+        <title>Albums - PHP version</title>
         <link rel="stylesheet" href="../dist/app.css">
         <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
         <script src="../dist/app.js" charset="utf-8"></script>
     </head>
     <body>
         <header>
-
+            <h1>
+                Albums - PHP version
+            </h1>
         </header>
 
         <main>

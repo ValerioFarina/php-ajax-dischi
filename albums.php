@@ -73,7 +73,9 @@
         ]
     ];
 
-    if (isset($_GET['genre'])) {
+    // we check if an ajax request with parameter "genre" has been made
+    if (ajax_request_detected() && isset($_GET['genre'])) {
+        // if an ajax request with parameter "genre" has been made
         // we get the selected genre
         $selected_genre = $_GET['genre'];
 
@@ -81,7 +83,7 @@
         $albums_filtered = $albums;
 
         if ($selected_genre != 'All') {
-            // if the user has selected a specific genre,
+            // if the user has selected a specific genre (i.e. if $selected_genre is different from "All"),
             // then we filter the array saved in $albums_filtered according the selected genre
             $albums_filtered = array_filter($albums_filtered, function($album) {
                 global $selected_genre;
@@ -90,21 +92,39 @@
             $albums_filtered = array_values($albums_filtered);
         }
 
+        // finally, we get the json representation of $albums_filtered
         header('Content-Type: application/json');
         echo json_encode($albums_filtered);
+
     } else {
+        // if the ajax request that has been made does not include the parameter "genre"
+        // (or if no ajax requests have been made at all)
+        // we create a variable $genres
         $genres = [];
 
+        // we iterate over the array of albums
         foreach ($albums as $album) {
+            // for each album in the array, we check if its genre has already been pushed in the array $genres
             if (!in_array($album["genre"], $genres)) {
+                // if the current album's genre is not already included in the array $genres,
+                // then we push it in this array
                 $genres[] = $album["genre"];
             }
         }
 
-        if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest' ){
+        if (ajax_request_detected()){
+            // finally, if an ajax request has been detected, we get the json representation of $genres
             header('Content-Type: application/json');
             echo json_encode($genres);
         }
+    }
+
+
+    // ****************** functions ******************
+
+    // this function checks whether an ajax request has been made
+    function ajax_request_detected() {
+        return !empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest';
     }
 
 ?>

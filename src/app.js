@@ -12,8 +12,10 @@ $(document).ready(function() {
 
 
     if ($('#ajax-version').length) {
+        // if we are dealing with the ajax version of our page,
         // we get all the albums
         getAlbums('All');
+        // and we get all the genres
         getGenres();
     }
 
@@ -32,9 +34,9 @@ $(document).ready(function() {
     // ****************** functions ******************
 
     // this function takes as parameter the string genre, and makes an AJAX request
-    // in case of successful request, the response is an array of objects representing albums that match the genre
+    // in case of success, the response is an array of objects representing albums that match the genre
     // we passed to the function as argument
-    // then, for each album in the array, we get a corresponding card, and we append it to the albums' container
+    // for each album in the array, the function "builds" a corresponding card, and appends it to the albums' container
     function getAlbums(genre) {
         $.ajax({
             url: '../albums.php',
@@ -68,8 +70,16 @@ $(document).ready(function() {
         });
     }
 
+    // this function makes an AJAX request,
+    // whose response (in case of success) is an array of strings representing the various albums' genres
+    // for each genre in the array, the function "builds" a corresponding option, and appends it to the select with class "genres"
     function getGenres() {
+        // we get the template of a genre's option
+        // and we assign it to the variable genreHtml
         var genreHtml = $('#genre-template').html();
+
+        // we compile genreHtml in order to get the function genreTemplate
+        // when called, this function returns an instance of genreHtml
         var genreTemplate = Handlebars.compile(genreHtml);
 
         $.ajax({
@@ -77,12 +87,10 @@ $(document).ready(function() {
             method: 'GET',
             success: function(genres) {
                 genres.forEach((genre) => {
-                    var placeholders = {
-                        genre
-                    };
+                    // for each genre, we "build" a corresponding option
+                    var genreHtml = genreTemplate({ genre });
 
-                    var genreHtml = genreTemplate(placeholders);
-
+                    // we append this option to the select having the class "genres"
                     $(".genres").append(genreHtml);
                 });
             },

@@ -10,8 +10,13 @@
 }
 
 header {
-  height: 100px;
   background-color: grey;
+  color: white;
+}
+header h1 {
+  height: 100px;
+  padding: 20px;
+  line-height: 60px;
 }
 
 main {
