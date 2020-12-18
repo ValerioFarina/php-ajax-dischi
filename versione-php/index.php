@@ -21,11 +21,6 @@
                 <div class="filter-genre">
                     <select class="genres">
                         <option value="All">--- select genre ---</option>
-                        <option value="Rock">Rock</option>
-                        <option value="Pop">Pop</option>
-                        <option value="Jazz">Jazz</option>
-                        <option value="Metal">Metal</option>
-                        <option value="Hip hop">Hip hop</option>
                     </select>
                 </div>
 
@@ -81,6 +76,12 @@
                     </h5>
                 </div>
             </div>
+        </script>
+
+        <script id="option template" type="text/x-handlebars-template">
+            <option value="{{ genre }}">
+                {{ genre }}
+            </option>
         </script>
     </body>
 </html>
