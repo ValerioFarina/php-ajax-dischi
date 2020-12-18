@@ -11003,7 +11003,7 @@ $(document).ready(function () {
 
   function getAlbums(genre) {
     $.ajax({
-      url: 'albums.php',
+      url: '../albums.php',
       method: 'GET',
       data: {
         genre: genre

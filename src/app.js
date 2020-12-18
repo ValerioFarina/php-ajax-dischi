@@ -22,7 +22,7 @@ $(document).ready(function() {
         // finally, we get the albums that match the selected genre
         getAlbums(selectedGenre);
     });
-    
+
 
     // ****************** functions ******************
 
@@ -32,7 +32,7 @@ $(document).ready(function() {
     // then, for each album in the array, we get a corresponding card, and we append it to the albums' container
     function getAlbums(genre) {
         $.ajax({
-            url: 'albums.php',
+            url: '../albums.php',
             method: 'GET',
             data: {
                 genre

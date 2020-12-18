@@ -1,5 +1,5 @@
 <?php
-    require 'albums.php';
+    require '../albums.php';
 ?>
 
 <!DOCTYPE html>
