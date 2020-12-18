@@ -73,7 +73,7 @@
         ]
     ];
 
-    if (!empty($_GET)) {
+    if (isset($_GET['genre'])) {
         // we get the selected genre
         $selected_genre = $_GET['genre'];
 

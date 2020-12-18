@@ -16,6 +16,17 @@
 
         <main>
             <div class="container">
+                <div class="filter-genre">
+                    <select class="genres">
+                        <option value="All">--- select genre ---</option>
+                        <option value="Rock">Rock</option>
+                        <option value="Pop">Pop</option>
+                        <option value="Jazz">Jazz</option>
+                        <option value="Metal">Metal</option>
+                        <option value="Hip hop">Hip hop</option>
+                    </select>
+                </div>
+
                 <div class="albums">
                     <?php
                     foreach ($albums as $album) { ?>
