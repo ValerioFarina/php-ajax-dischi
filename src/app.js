@@ -9,8 +9,10 @@ $(document).ready(function() {
     // when called, this function returns an instance of albumHtml
     var albumTemplate = Handlebars.compile(albumHtml);
 
-    // we get all the albums
-    getAlbums('All');
+    if ($('#ajax-version').length) {
+        // we get all the albums
+        getAlbums('All');
+    }
 
     $("select.genres").change(function() {
         // when we select a genre, first of all we empty the albums' container

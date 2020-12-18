@@ -10985,9 +10985,13 @@ $(document).ready(function () {
   var albumHtml = $('#album-template').html(); // we compile albumHtml in order to get the function albumTemplate
   // when called, this function returns an instance of albumHtml
 
-  var albumTemplate = Handlebars.compile(albumHtml); // we get all the albums
+  var albumTemplate = Handlebars.compile(albumHtml);
 
-  getAlbums('All');
+  if ($('#ajax-version').length) {
+    // we get all the albums
+    getAlbums('All');
+  }
+
   $("select.genres").change(function () {
     // when we select a genre, first of all we empty the albums' container
     $(".albums").empty(); // then, we recover the genre selected
