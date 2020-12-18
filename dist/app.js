@@ -10990,6 +10990,7 @@ $(document).ready(function () {
   if ($('#ajax-version').length) {
     // we get all the albums
     getAlbums('All');
+    getGenres();
   }
 
   $("select.genres").change(function () {
@@ -11032,6 +11033,27 @@ $(document).ready(function () {
       },
       error: function error() {
         console.log('Error');
+      }
+    });
+  }
+
+  function getGenres() {
+    var genreHtml = $('#genre-template').html();
+    var genreTemplate = Handlebars.compile(genreHtml);
+    $.ajax({
+      url: '../albums.php',
+      method: 'GET',
+      success: function success(genres) {
+        genres.forEach(function (genre) {
+          var placeholders = {
+            genre: genre
+          };
+          var genreHtml = genreTemplate(placeholders);
+          $(".genres").append(genreHtml);
+        });
+      },
+      error: function error() {
+        console.log("Error");
       }
     });
   }

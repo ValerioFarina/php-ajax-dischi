@@ -89,11 +89,22 @@
             });
             $albums_filtered = array_values($albums_filtered);
         }
-    }
 
-    if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest' ){
         header('Content-Type: application/json');
         echo json_encode($albums_filtered);
+    } else {
+        $genres = [];
+
+        foreach ($albums as $album) {
+            if (!in_array($album["genre"], $genres)) {
+                $genres[] = $album["genre"];
+            }
+        }
+
+        if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest' ){
+            header('Content-Type: application/json');
+            echo json_encode($genres);
+        }
     }
 
 ?>

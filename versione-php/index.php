@@ -21,6 +21,13 @@
                 <div class="filter-genre">
                     <select class="genres">
                         <option value="All">--- select genre ---</option>
+                        <?php
+                        foreach ($genres as $genre){ ?>
+                            <option value="<?php echo $genre; ?>">
+                                <?php echo $genre; ?>
+                            </option>
+                            <?php
+                        } ?>
                     </select>
                 </div>
 
@@ -76,12 +83,6 @@
                     </h5>
                 </div>
             </div>
-        </script>
-
-        <script id="option template" type="text/x-handlebars-template">
-            <option value="{{ genre }}">
-                {{ genre }}
-            </option>
         </script>
     </body>
 </html>
