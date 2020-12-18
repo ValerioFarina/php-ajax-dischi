@@ -42,6 +42,10 @@ main {
   margin: 50px 25px 0 25px;
   background-color: grey;
   color: white;
+  cursor: pointer;
+}
+.album:hover {
+  transform: scale(1.1);
 }
 .album .poster img {
   width: 250px;

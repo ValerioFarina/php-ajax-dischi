@@ -22,6 +22,11 @@ main {
     margin: 50px 25px 0 25px;
     background-color: $brand_primary;
     color: white;
+    cursor: pointer;
+
+    &:hover {
+        transform: scale(1.1);
+    }
 
     .poster {
         img {
