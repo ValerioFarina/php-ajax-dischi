@@ -32,6 +32,14 @@
                     </select>
                 </div>
 
+                <div class="order-year">
+                    <select class="year">
+                        <option value="">--- order by year ---</option>
+                        <option value="asc">From oldest to newest</option>
+                        <option value="desc">From newest to oldest</option>
+                    </select>
+                </div>
+
                 <div class="albums">
                     <?php
                     foreach ($albums as $album) { ?>

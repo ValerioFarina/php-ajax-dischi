@@ -3,13 +3,21 @@ main {
     background-color: $brand_secondary;
 }
 
+.filter-genre,
+.order-year {
+    text-align: center;
+}
+
 .filter-genre {
     padding-top: 50px;
-    text-align: center;
+}
 
-    select {
-        padding: 5px;
-    }
+.order-year {
+    padding-top: 25px;
+}
+
+select {
+    padding: 5px;
 }
 
 .albums {
@@ -23,10 +31,6 @@ main {
     background-color: $brand_primary;
     color: white;
     cursor: pointer;
-
-    &:hover {
-        transform: scale(1.1);
-    }
 
     .poster {
         img {

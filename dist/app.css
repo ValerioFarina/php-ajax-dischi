@@ -24,11 +24,20 @@ main {
   background-color: #000000e0;
 }
 
-.filter-genre {
-  padding-top: 50px;
+.filter-genre,
+.order-year {
   text-align: center;
 }
-.filter-genre select {
+
+.filter-genre {
+  padding-top: 50px;
+}
+
+.order-year {
+  padding-top: 25px;
+}
+
+select {
   padding: 5px;
 }
 
@@ -43,9 +52,6 @@ main {
   background-color: grey;
   color: white;
   cursor: pointer;
-}
-.album:hover {
-  transform: scale(1.1);
 }
 .album .poster img {
   width: 250px;

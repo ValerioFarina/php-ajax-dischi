@@ -92,6 +92,23 @@
             $albums_filtered = array_values($albums_filtered);
         }
 
+        // we get the selected order
+        $selected_order = $_GET['order'];
+
+        if ($selected_order == "asc") {
+            // if the selected order is "asc",
+            // we sort the albums from the oldest to the newest
+            usort($albums_filtered, function($a, $b) {
+                return intval($a["year"]) - intval($b["year"]);
+            });
+        } elseif ($selected_order == "desc") {
+            // if the selected order is "desc",
+            // we sort the albums from the newest to the oldest
+            usort($albums_filtered, function($a, $b) {
+                return intval($b["year"]) - intval($a["year"]);
+            });
+        }
+
         // finally, we get the json representation of $albums_filtered
         header('Content-Type: application/json');
         echo json_encode($albums_filtered);

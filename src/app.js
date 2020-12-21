@@ -10,39 +10,39 @@ $(document).ready(function() {
     // when called, this function returns an instance of albumHtml
     var albumTemplate = Handlebars.compile(albumHtml);
 
-
     if ($('#ajax-version').length) {
         // if we are dealing with the ajax version of our page,
-        // we get all the albums
-        getAlbums('All');
-        // and we get all the genres
+        // we get all the genres
         getGenres();
+        // and we get all the albums (in the order in which they appear in the file albums.php)
+        getAlbums();
     }
 
-    $("select.genres").change(function() {
-        // when we select a genre, first of all we empty the albums' container
+    $("select.genres, select.year").change(function() {
+        // when we select a genre or an order, first of all we empty the albums' container
         $(".albums").empty();
 
-        // then, we recover the genre selected
-        var selectedGenre = $("select.genres").val();
-
-        // finally, we get the albums that match the selected genre
-        getAlbums(selectedGenre);
+        // finally, we get the albums that match the selected genre and order
+        getAlbums();
     });
-
 
     // ****************** functions ******************
 
-    // this function takes as parameter the string genre, and makes an AJAX request
-    // in case of success, the response is an array of objects representing albums that match the genre
-    // we passed to the function as argument
+    // this function makes an AJAX request, whose response (in case of success)
+    // is an array of objects representing albums that match the genre and order selected
     // for each album in the array, the function "builds" a corresponding card, and appends it to the albums' container
-    function getAlbums(genre) {
+    function getAlbums() {
+        // we recover the genre and the order selected
+        var selectedGenre = $("select.genres").val();
+        var selectedOrder = $('select.year').val();
+
+        // then, we make the ajax request (using the genre and the order selected as parameters)
         $.ajax({
             url: '../albums.php',
             method: 'GET',
             data: {
-                genre
+                genre: selectedGenre,
+                order: selectedOrder
             },
             success: function(albums) {
                 albums.forEach((album) => {
